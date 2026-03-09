@@ -14,7 +14,7 @@ refs.startBtn.disabled = true;
 let userSelectedDate;
 let intervalId;
 
-flatpickr(refs.picker, {
+const calendar = flatpickr(refs.picker, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
@@ -33,7 +33,7 @@ flatpickr(refs.picker, {
 });
 
 refs.startBtn.addEventListener('click', () => {
-  refs.picker.disabled = true;
+  calendar._input.disabled = true;
   refs.startBtn.disabled = true;
 
   intervalId = setInterval(() => {
@@ -43,7 +43,7 @@ refs.startBtn.addEventListener('click', () => {
     if (diff <= 0) {
       clearInterval(intervalId);
       updateTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      refs.picker.disabled = false;
+      calendar._input.disabled = false;
       refs.startBtn.disabled = true;
       return;
     }
