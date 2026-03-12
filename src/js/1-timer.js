@@ -28,7 +28,6 @@ const calendar = flatpickr(refs.picker, {
 
     if (userSelectedDate <= new Date()) {
       iziToast.show({
-        // title: 'Hey',
         message: 'Please choose a date in the future',
         messageColor: 'white',
         color: 'red',
